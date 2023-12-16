@@ -7,7 +7,8 @@
 class Manager {
 public:
     template<typename... TComponents>
-    void addEntity(TComponents... other) {
+    void
+    addEntity(TComponents... other) {
         Enitity enitity;
         (enitity.addComponent<TComponents>(other), ...);
         _entities.push_back(enitity);
@@ -15,7 +16,7 @@ public:
 
     template<typename... TComponents>
     std::vector<std::tuple<TComponents *...>>
-    GetWithComponents() {
+    GetEntitiesWithComponents() {
         std::vector<std::tuple<TComponents* ...>> components;
         for (auto& entity: _entities) {
             if ((entity.hasComponent<TComponents>() && ...)) {
