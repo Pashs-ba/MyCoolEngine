@@ -14,9 +14,7 @@ class SinMoveSystem : public SystemBase {
         for (auto& [id, coordinates]: enitiyManager.GetEntitiesWithComponents<Coordinates2D>()) {
             auto time = std::chrono::duration_cast<std::chrono::milliseconds>(
                 std::chrono::system_clock::now().time_since_epoch()).count();
-            auto change = std::sin(time/100)*10;
-            coordinates.y += change;
-            std::cout << change << std::endl;
+            coordinates.y += std::sin(time/100)*10;
         }
     }
 };

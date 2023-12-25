@@ -20,9 +20,10 @@ public:
     };
 
     template<typename... TComponents>
-    void
+    MainLoop&
     addEntity(const TComponents&... other) {
         _entityManager.addEntity<TComponents...>(other...);
+        return *this;
     }
 
     void MakeStep(sf::RenderWindow& window);

@@ -9,9 +9,10 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
     window.setFramerateLimit(30);
     MainLoop loop;
-    loop.addEntity(SfmlSprite(), SfmlTexture("test.png"), Coordinates2D(200, 200));
-    loop.addSystem(SfmlSpritePositionSystem());
-    loop.addSystem(SinMoveSystem());
+    loop.addEntity(SfmlSprite(), SfmlTexture("test.png"), Coordinates2D(200, 200))
+            .addEntity(SfmlSprite(), SfmlTexture("test.png"), Coordinates2D(100, 200));
+    loop.addSystem(SfmlSpritePositionSystem())
+            .addSystem(SinMoveSystem());
     while (window.isOpen()) {
         loop.MakeStep(window);
     }
