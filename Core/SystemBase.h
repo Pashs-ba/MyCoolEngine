@@ -1,16 +1,13 @@
 #pragma once
-#include "Manager.h"
+#include "EntityManager.h"
+#include <SFML/Graphics.hpp>
+
 
 class SystemBase {
 public:
-    explicit SystemBase(Manager& manager): CurrentManager(manager) {
-    }
 
-    virtual void OnBeforeRender(double dt) = 0;
-    virtual void OnAfterRender(double dt) = 0;
+    virtual void OnBeforeRender(double dt, std::vector<sf::Event>& events, EntityManager& enitiyManager) = 0;
+    virtual void OnAfterRender(double dt, std::vector<sf::Event>& events, EntityManager& enitiyManager) = 0;
 
     virtual ~SystemBase() = default;
-
-protected:
-    Manager& CurrentManager;
 };

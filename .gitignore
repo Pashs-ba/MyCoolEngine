@@ -82,7 +82,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.DS_Store
-# Swift Package Manager files
+# Swift Package EntityManager files
 Package.resolved
 # Objective-C generated files
 *.pbobjc.*

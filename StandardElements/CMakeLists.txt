@@ -1,7 +1,8 @@
 add_library(StandardElements
-        Components/SfmlSprite.h
-        Components/SfmlSprite.cpp
-        Systems/MovementSystem.cpp
-        Systems/MovementSystem.h
-        Components/Coordinates2D.h
-        Components/Velocity2D.h)
+        Components/Coordinates2D.hpp
+        Components/Velocity2D.h
+        Components/Coordinates2D.cpp
+        Systems/SfmlSpritePositionSystem.cpp
+        Systems/SfmlSpritePositionSystem.h)
+target_link_libraries(StandardElements PRIVATE sfml-system sfml-network sfml-graphics sfml-window)
+target_link_libraries(StandardElements PRIVATE Core)

@@ -10,14 +10,14 @@ public:
         return _components.contains(typeid(T).hash_code());
     }
     template<typename T>
-    Enitity& addComponent(T component) {
+    Enitity& addComponent(const T& component) {
         _components.insert({typeid(T).hash_code(), std::make_shared<T>(component)});
         return *this;
     }
     template<typename T>
-    T* getComponent() {
+    T& getComponent() {
         std::shared_ptr<Component>& component = _components.at(typeid(T).hash_code());
-        return static_cast<T*>(component.get());
+        return *static_cast<T*>(component.get());
     }
 
     template<typename T>
