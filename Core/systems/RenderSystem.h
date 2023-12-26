@@ -5,10 +5,10 @@
 
 class RenderSystem : public SystemBase {
 public:
-    void OnBeforeRender(double dt, std::vector<sf::Event>& events, EntityManager& entityManager) override {
+    void OnBeforeRender(double dt, std::vector<sf::Event>& events, EntityManager& entityManager, AdditinalData data) override {
     };
 
-    void OnAfterRender(double dt, std::vector<sf::Event>& events, EntityManager& entityManager) override {
+    void OnAfterRender(double dt, std::vector<sf::Event>& events, EntityManager& entityManager, AdditinalData data) override {
     };
 
     static void Render(sf::RenderWindow& window, EntityManager& entityManager) {

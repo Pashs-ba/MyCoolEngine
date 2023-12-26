@@ -13,6 +13,7 @@ add_library(Core
         components/SfmlSprite.cpp
         components/SfmlTexture.cpp
         components/SfmlTexture.h
+        AdditionalData.h
 )
 
 target_link_libraries(Core PRIVATE sfml-system sfml-network sfml-graphics sfml-window)

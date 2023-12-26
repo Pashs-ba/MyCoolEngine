@@ -7,10 +7,10 @@
 #include <iostream>
 
 class SinMoveSystem : public SystemBase {
-    void OnAfterRender(double dt, std::vector<sf::Event>& events, EntityManager& enitiyManager) override {
+    void OnAfterRender(double dt, std::vector<sf::Event>& events, EntityManager& enitiyManager, AdditinalData data) override {
     }
 
-    void OnBeforeRender(double dt, std::vector<sf::Event>& events, EntityManager& enitiyManager) override {
+    void OnBeforeRender(double dt, std::vector<sf::Event>& events, EntityManager& enitiyManager, AdditinalData data) override {
         for (auto& [id, coordinates]: enitiyManager.GetEntitiesWithComponents<Coordinates2D>()) {
             auto time = std::chrono::duration_cast<std::chrono::milliseconds>(
                 std::chrono::system_clock::now().time_since_epoch()).count();
