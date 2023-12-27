@@ -1,7 +1,7 @@
 #pragma once
-#include "Core/Component.h"
+#include "Core/ComponentBase.h"
 
-class Velocity2D : public Component {
+class Velocity2D : public ComponentBase {
 public:
     Velocity2D(double x, double y)
         : x(x),

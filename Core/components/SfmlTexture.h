@@ -1,13 +1,14 @@
 #pragma once
 #include <SFML/Graphics/Texture.hpp>
 
-#include "../Component.h"
+#include "../ComponentBase.h"
 
 
-class SfmlTexture: public Component {
+class SfmlTexture: public ComponentBase {
 public:
     explicit SfmlTexture(const std::string& path) {
         texture.loadFromFile(path);
+        texture.setSmooth(true);
     }
     sf::Texture texture;
 };

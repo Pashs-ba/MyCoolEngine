@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics/Sprite.hpp>
-#include "../Component.h"
+#include "../ComponentBase.h"
 
-class SfmlSprite : public Component {
+class SfmlSprite : public ComponentBase {
 public:
     sf::Sprite sprite{};
 };

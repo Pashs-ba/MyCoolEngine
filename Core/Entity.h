@@ -2,7 +2,7 @@
 #include <memory>
 #include <unordered_map>
 
-#include "Component.h"
+#include "ComponentBase.h"
 class Enitity {
 public:
     template<typename T>
@@ -16,7 +16,7 @@ public:
     }
     template<typename T>
     T& getComponent() {
-        std::shared_ptr<Component>& component = _components.at(typeid(T).hash_code());
+        std::shared_ptr<ComponentBase>& component = _components.at(typeid(T).hash_code());
         return *static_cast<T*>(component.get());
     }
 
@@ -26,5 +26,5 @@ public:
     }
 
 private:
-    std::unordered_map<size_t, std::shared_ptr<Component>> _components;
+    std::unordered_map<size_t, std::shared_ptr<ComponentBase>> _components;
 };

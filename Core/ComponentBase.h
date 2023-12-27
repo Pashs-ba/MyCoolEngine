@@ -2,7 +2,7 @@
 #include <typeinfo>
 #include <cstddef>
 
-class Component {
+class ComponentBase {
 public:
-    Component() = default;
+    ComponentBase() = default;
 };

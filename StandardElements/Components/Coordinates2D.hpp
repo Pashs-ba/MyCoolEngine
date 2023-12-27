@@ -1,8 +1,8 @@
 #pragma once
-#include "../../Core/Component.h"
+#include "../../Core/ComponentBase.h"
 
 
-class Coordinates2D: public Component {
+class Coordinates2D: public ComponentBase {
 public:
     Coordinates2D(double x, double y)
         : x(x),

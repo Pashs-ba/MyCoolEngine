@@ -1,6 +1,6 @@
 add_library(Core
-        Component.h
-        Component.cpp
+        ComponentBase.h
+        ComponentBase.cpp
         EntityManager.cpp
         EntityManager.h
         Entity.h
