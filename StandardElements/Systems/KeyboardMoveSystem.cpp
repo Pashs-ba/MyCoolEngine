@@ -4,15 +4,15 @@
 
 #include "KeyboardMoveSystem.h"
 
-#include "../Components/Coordinates2D.hpp"
 #include "../Components/KeyboardMove.h"
+#include "../Components/CoordinatesChange.h"
 
 void
 KeyboardMoveSystem::OnBeforeRender(double dt,
                                    std::vector<sf::Event>& events,
                                    EntityManager& enitiyManager,
                                    AdditinalData data) {
-    for (auto& event: events) {
+    for (auto const& event: events) {
         if (event.type == sf::Event::KeyPressed) {
             switch (event.key.code) {
                 case sf::Keyboard::W:
@@ -48,18 +48,18 @@ KeyboardMoveSystem::OnBeforeRender(double dt,
             }
         }
     }
-    for (auto& [id, coord, keyboardMove]: enitiyManager.GetEntitiesWithComponents<Coordinates2D, KeyboardMove>()) {
+    for (auto& [id, coord_change, keyboardMove]: enitiyManager.GetEntitiesWithComponents<CoordinatesChange, KeyboardMove>()) {
         if (_wPressed) {
-            coord.y -= keyboardMove.streight * dt;
+            coord_change.changeY = -keyboardMove.streight * dt;
         }
         if (_aPressed) {
-            coord.x -= keyboardMove.streight * dt;
+            coord_change.changeX = -keyboardMove.streight * dt;
         }
         if (_sPressed) {
-            coord.y += keyboardMove.streight * dt;
+            coord_change.changeY = keyboardMove.streight * dt;
         }
         if (_dPressed) {
-            coord.x += keyboardMove.streight * dt;
+            coord_change.changeX = keyboardMove.streight * dt;
         }
     }
 }
