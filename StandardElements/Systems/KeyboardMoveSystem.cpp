@@ -9,46 +9,39 @@
 
 void
 KeyboardMoveSystem::OnBeforeRender(double dt,
-                                   std::vector<sf::Event>& events,
-                                   EntityManager& enitiyManager,
+                                   std::vector<sf::Event> &events,
+                                   EntityManager &enitiyManager,
                                    AdditinalData data) {
-    for (auto const& event: events) {
+    for (auto const &event : events) {
         if (event.type == sf::Event::KeyPressed) {
             switch (event.key.code) {
-                case sf::Keyboard::W:
-                    _wPressed = true;
+                case sf::Keyboard::W:_wPressed = true;
                     break;
-                case sf::Keyboard::A:
-                    _aPressed = true;
+                case sf::Keyboard::A:_aPressed = true;
                     break;
-                case sf::Keyboard::S:
-                    _sPressed = true;
+                case sf::Keyboard::S:_sPressed = true;
                     break;
-                case sf::Keyboard::D:
-                    _dPressed = true;
+                case sf::Keyboard::D:_dPressed = true;
                     break;
-                default: ;
+                default:;
             }
         }
         if (event.type == sf::Event::KeyReleased) {
             switch (event.key.code) {
-                case sf::Keyboard::W:
-                    _wPressed = false;
+                case sf::Keyboard::W:_wPressed = false;
                     break;
-                case sf::Keyboard::A:
-                    _aPressed = false;
+                case sf::Keyboard::A:_aPressed = false;
                     break;
-                case sf::Keyboard::S:
-                    _sPressed = false;
+                case sf::Keyboard::S:_sPressed = false;
                     break;
-                case sf::Keyboard::D:
-                    _dPressed = false;
+                case sf::Keyboard::D:_dPressed = false;
                     break;
-                default: ;
+                default:;
             }
         }
     }
-    for (auto& [id, coord_change, keyboardMove]: enitiyManager.GetEntitiesWithComponents<CoordinatesChange, KeyboardMove>()) {
+    for (auto &[id, coord_change, keyboardMove] :
+        enitiyManager.GetEntitiesWithComponents<CoordinatesChange, KeyboardMove>()) {
         if (_wPressed) {
             coord_change.changeY = -keyboardMove.streight * dt;
         }
