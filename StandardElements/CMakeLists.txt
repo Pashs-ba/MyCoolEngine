@@ -15,6 +15,12 @@ add_library(StandardElements
         Systems/SolidBodyCollisionSystem.cpp
         Systems/SolidBodyCollisionSystem.h
         Components/SolidBody.cpp
-        Components/SolidBody.h)
+        Components/SolidBody.h
+        Components/Velocity.cpp
+        Components/Velocity.h
+        Systems/VelocityTransformSystem.cpp
+        Systems/VelocityTransformSystem.h
+        Systems/VelocityCollisionSystem.cpp
+        Systems/VelocityCollisionSystem.h)
 target_link_libraries(StandardElements PRIVATE sfml-system sfml-network sfml-graphics sfml-window)
 target_link_libraries(StandardElements PRIVATE Core)
