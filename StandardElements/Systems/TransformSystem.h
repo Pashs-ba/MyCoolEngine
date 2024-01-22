@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../Core/SystemBase.h"
-class CoordinatesChangeSystem : public SystemBase {
+class TransformSystem : public SystemBase {
  public:
     void OnAfterRender(double dt,
                        std::vector<sf::Event> &events,

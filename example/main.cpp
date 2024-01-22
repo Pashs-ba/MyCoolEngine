@@ -6,8 +6,10 @@
 #include "StandardElements/Systems/KeyboardMoveSystem.h"
 #include "StandardElements/Systems/SfmlSpritePositionSystem.h"
 #include "StandardElements/Components/Collidable.h"
-#include "StandardElements/Systems/CoordinatesChangeSystem.h"
-#include "StandardElements/Components/CoordinatesChange.h"
+#include "StandardElements/Systems/TransformSystem.h"
+#include "StandardElements/Components/Transform.h"
+#include "StandardElements/Components/SolidBody.h"
+#include "StandardElements/Systems/SolidBodyCollisionSystem.h"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
@@ -17,22 +19,25 @@ int main() {
         .addEntity(SfmlSprite(),
                    SfmlTexture("../../assets/red_rect.png"),
                    Coordinates2D(200, 200),
-                   CoordinatesChange(),
+                   SolidBody(),
                    Collidable())
         .addEntity(SfmlSprite(),
                    SfmlTexture("../../assets/red_rect.png"),
                    Coordinates2D(100, 200),
-                   CoordinatesChange(),
+                   SolidBody(),
                    Collidable())
         .addEntity(SfmlSprite(),
                    SfmlTexture("../../assets/player.png"),
                    Coordinates2D(10, 200),
-                   CoordinatesChange(),
+                   Transform(),
+                   SolidBody(),
                    KeyboardMove(100000),
                    Collidable());
     loop.addSystem(SfmlSpritePositionSystem());
     loop.addSystem(KeyboardMoveSystem());
-    loop.addSystem(CoordinatesChangeSystem());
+    loop.addSystem(SolidBodyCollisionSystem());
+    loop.addSystem(TransformSystem());
+
     while (window.isOpen()) {
         loop.MakeStep(window);
     }

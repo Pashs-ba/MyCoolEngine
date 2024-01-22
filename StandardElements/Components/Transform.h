@@ -2,9 +2,9 @@
 
 #include "../../Core/ComponentBase.h"
 
-class CoordinatesChange: public ComponentBase{
+class Transform: public ComponentBase{
  public:
-    CoordinatesChange() = default;
+    Transform() = default;
     double changeX;
     double changeY;
 };

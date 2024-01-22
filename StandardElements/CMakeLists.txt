@@ -8,9 +8,13 @@ add_library(StandardElements
         Systems/KeyboardMoveSystem.h
         Components/Collidable.cpp
         Components/Collidable.h
-        Components/CoordinatesChange.cpp
-        Components/CoordinatesChange.h
-        Systems/CoordinatesChangeSystem.cpp
-        Systems/CoordinatesChangeSystem.h)
+        Components/Transform.cpp
+        Components/Transform.h
+        Systems/TransformSystem.cpp
+        Systems/TransformSystem.h
+        Systems/SolidBodyCollisionSystem.cpp
+        Systems/SolidBodyCollisionSystem.h
+        Components/SolidBody.cpp
+        Components/SolidBody.h)
 target_link_libraries(StandardElements PRIVATE sfml-system sfml-network sfml-graphics sfml-window)
 target_link_libraries(StandardElements PRIVATE Core)

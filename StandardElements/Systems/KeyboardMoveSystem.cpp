@@ -5,7 +5,7 @@
 #include "KeyboardMoveSystem.h"
 
 #include "../Components/KeyboardMove.h"
-#include "../Components/CoordinatesChange.h"
+#include "../Components/Transform.h"
 
 void
 KeyboardMoveSystem::OnBeforeRender(double dt,
@@ -41,7 +41,7 @@ KeyboardMoveSystem::OnBeforeRender(double dt,
         }
     }
     for (auto &[id, coord_change, keyboardMove] :
-        enitiyManager.GetEntitiesWithComponents<CoordinatesChange, KeyboardMove>()) {
+        enitiyManager.GetEntitiesWithComponents<Transform, KeyboardMove>()) {
         if (_wPressed) {
             coord_change.changeY = -keyboardMove.streight * dt;
         }
